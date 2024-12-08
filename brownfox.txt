@@ -1,8 +1,2 @@
-the
-quick 
-brown 
-fox
-jumps
-over
-lazy
-dog
+the quick borwn fox jumps over the lazy dog.
+
