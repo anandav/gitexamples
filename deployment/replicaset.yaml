@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myreplicaset
+  labels:
+    app: myapp
+    key: value
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      key: ngx-lbl
+  template:
+    metadata:
+      name: proxy
+      labels:
+        key: ngx-lbl
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+          - containerPort: 9191
+
+    

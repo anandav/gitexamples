@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pt-client-v3
+spec:
+  containers:
+  - name: main-ctr
+    image: registry.digitalocean.com/ara-cr/pt-client 
+    ports:
+    - containerPort: 8080
