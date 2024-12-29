@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  replicas: 5
+  selector:
+    matchLabels:
+      app: nginx-lbl
+  template:
+    metadata:
+      labels:
+        app: nginx-lbl
+    spec:
+      containers:
+      - name: nginx-ctr
+        image: nginx 
+        #image: registry.digitalocean.com/ara-cr/pt-client:latest 
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "150m"
+        ports:
+        - containerPort: 80

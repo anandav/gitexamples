@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubuntu-deployment
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      machine: ubuntu
+  template:
+    metadata:
+      labels:
+        machine: ubuntu
+    spec:
+      containers:
+      - name: ubuntu
+        image: ubuntu
+        resources:
+          limits:
+            memory: "500Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        command: ["/bin/bash", "-c"]
+        args:
+        - sleep 300
