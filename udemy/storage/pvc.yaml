@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mppvc
+  namespace: default
+  labels:
+    app: mppvc
+spec:
+  storageClassName: mystorage-class-name
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
